@@ -2,15 +2,26 @@ from pymemuc import PyMemuc
 from time import sleep
 memuc = PyMemuc(debug=True)
 
-# list out all vms, get the index of the first one
-index = memuc.list_vm_info()[0]['index']
-index2 = memuc.list_vm_info()[10]['index']
+getEmuIndex = 0
+getPackageName = ""
 
+try:
+    getEmuIndex = int(input("Enter Emulator Index: "))
+    getPackageName = input("Enter the package name for browser: ")
+except ValueError:
+    print("Enter valid value.")
+
+# list out all vms, get the index of the first one
+# for ex. first emulator index = 0
+# second emulator index = 1 and etc.
+
+index = memuc.list_vm_info()[getEmuIndex]['index']
+#index2 = memuc.list_vm_info()[10]['index'] 
 
 # start the vm
 
 def start_emu(indexNumber: int):
-    memuc.start_vm(index)
+    memuc.start_vm(index, timeout=30)
     memuc.set_configuration_vm("is_customed_resolution", "1", vm_index=indexNumber)
     memuc.set_configuration_vm("resolution_width", "460", vm_index=indexNumber)
     memuc.set_configuration_vm("resolution_height", "680", vm_index=indexNumber)
@@ -36,10 +47,10 @@ def start_automate(indexNumber: int, p1: str, p2: str, p3: str):
 
 #com.google.android.gms
 #com.scopely.monopolygo
-
-start_emu(index2)
+#org.mozilla.firefox"
+start_emu(index)
 
 while True:
     sleep(2)
-    start_automate(index2, "com.scopely.monopolygo", "com.google.android.gms", "org.mozilla.firefox")
+    start_automate(index, "com.scopely.monopolygo", "com.google.android.gms", getPackageName)
 
