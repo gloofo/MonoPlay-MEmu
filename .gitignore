@@ -1,5 +1,6 @@
 __pycache__
 venv
 dist
-build/
+build
 main.spec
+gapi.py
