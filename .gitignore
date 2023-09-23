@@ -2,6 +2,8 @@ __pycache__
 venv
 dist
 build
-main.spec/
+main.spec
 gapi.py
-python.spec/
+python.spec
+conn.py
+app.ico
