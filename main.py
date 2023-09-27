@@ -76,13 +76,7 @@ def start_emu():
     print(f"{loading_animation('Loading')}")
     os.system('cls')
     memuc.start_vm(indexValue, headless=True, timeout=60)
-    #memuc.set_configuration_vm("is_customed_resolution", "1", vm_index=indexNumber)
-    #memuc.set_configuration_vm("resolution_width", "460", vm_index=indexNumber)
-   # memuc.set_configuration_vm("resolution_height", "680", vm_index=indexNumber)
-   # memuc.set_configuration_vm("vbox_dpi", "160", vm_index=indexNumber)
-    # set to remember window location
-    #memuc.set_configuration_vm("start_window_mode", "1", vm_index=indexNumber)
-
+    
 def start_automate(indexNumber: int, p1: str, p2: str, link: str):
     print(f"{loading_animation('Washing Clothes')}")
     os.system('cls')
@@ -110,9 +104,6 @@ def start_automate(indexNumber: int, p1: str, p2: str, link: str):
     print(f"{loading_animation('Landing')}")
     os.system('cls')
     sleep(2)
-#com.google.android.gms
-#com.scopely.monopolygo
-#org.mozilla.firefox"
 
 indexValue = getIndexValue()
 start_emu()
@@ -121,5 +112,3 @@ def start():
     while True:
         sleep(2)
         start_automate(indexValue, "com.scopely.monopolygo", "com.google.android.gms", newLink)
-
-start()
